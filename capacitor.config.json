@@ -1,0 +1,6 @@
+{
+  "appId": "com.bide.app",
+  "appName": "Bide",
+  "webDir": "gh-pages",
+  "bundledWebRuntime": false
+}

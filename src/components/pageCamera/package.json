@@ -1,0 +1,14 @@
+{
+  "name": "page-camera",
+  "version": "1.0.0",
+  "description": "Camera and overlay component",
+  "main": "pageCamera.js",
+  "module": "pageCamera.js",
+  "type": "module",
+  "customElements": "custom-elements.json",
+  "author": "Angel Hita",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^3.3.1"
+  }
+}

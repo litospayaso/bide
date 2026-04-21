@@ -1,0 +1,14 @@
+{
+  "name": "page-bide-app",
+  "version": "1.0.0",
+  "description": "Main entry point and routing system",
+  "main": "pageBideApp.js",
+  "module": "pageBideApp.js",
+  "type": "module",
+  "customElements": "custom-elements.json",
+  "author": "Angel Hita",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^3.3.1"
+  }
+}

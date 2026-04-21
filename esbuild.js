@@ -8,7 +8,7 @@ import { exec } from 'node:child_process';
 const outDir = 'dist';
 
 if (fs.existsSync('./dist')) {
-  fs.rm('./dist', { recursive: true }, () => {});
+  fs.rm('./dist', { recursive: true }, () => { });
 }
 
 const gzip = async folder => {
@@ -25,14 +25,14 @@ const gzip = async folder => {
 };
 
 const asyncForEach = async (array, callback) => {
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0;index < array.length;index++) {
     await callback(array[index], index, array);
   }
 };
 
 
 asyncForEach(glob.sync('./src/components/**/index.ts'), async file => {
-  file = file.replace(/\\/g,'/')
+  file = file.replace(/\\/g, '/')
   const componentPath = file.replace('/index.ts', '');
   let packageJson = fs.readFileSync(`${componentPath}/package.json`);
   packageJson = JSON.parse(packageJson);
@@ -85,4 +85,17 @@ asyncForEach(glob.sync('./src/components/**/index.ts'), async file => {
 
   console.log('\x1b[32m%s\x1b[36m%s\x1b[0m', '[gzip]:      ', zip);
   console.log('\x1b[32m%s\x1b[0m', '-----------------------------');
+}).then(() => {
+  const pageBideAppVersion = JSON.parse(fs.readFileSync('./src/components/pageBideApp/package.json')).version;
+  fs.copyFile(`./dist/components/pageBideApp/${pageBideAppVersion}/pageBideApp.js`, './gh-pages/pageBideApp.js', err => {
+    if (err) {
+      console.log('\x1b[32m%s\x1b[0m', '\n-----------------------------');
+      console.log('\x1b[32m%s\x1b[36m%s\x1b[0m', '[ERROR]:      ', err);
+      console.log('\x1b[32m%s\x1b[0m', '-----------------------------');
+    } else {
+      console.log('\x1b[32m%s\x1b[0m', '\n-----------------------------');
+      console.log('\x1b[32m%s\x1b[36m%s\x1b[0m', '[pageBideApp.js]:       ', ' Lib copy correctly!');
+      console.log('\x1b[32m%s\x1b[0m', '-----------------------------');
+    }
+  });
 });

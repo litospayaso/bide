@@ -1,8 +1,7 @@
 {
-  "name": "wc-storybook-template",
-  "version": "2.0.0",
-  "description": "Storybook web-components in lit-html",
-  "private": true,
+  "name": "bide",
+  "version": "0.0.1",
+  "description": "Bide is a drawing and tracing app.",
   "author": "Angel Hita",
   "license": "ISC",
   "repository": {
@@ -12,6 +11,9 @@
   "scripts": {
     "dev": "vite",
     "build": "node esbuild.js",
+    "build:android": "npx cap sync android && cd android && gradlew assembleDebug",
+    "build:apk": "npm run build && npm run build:android",
+    "release": "npm run build:apk && node scripts/release.js",
     "start": "npm run storybook",
     "test": "web-test-runner --config wtr.config.mjs --coverage",
     "test:watch": "web-test-runner --config wtr.config.mjs --watch --chromium",
@@ -20,9 +22,14 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@capacitor/camera": "^6.1.3",
+    "@capacitor/core": "^6.2.1",
+    "@ionic/pwa-elements": "^3.4.0",
     "lit": "^3.3.1"
   },
   "devDependencies": {
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
     "@chromatic-com/storybook": "^5.0.0",
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@storybook/addon-a11y": "^10.2.6",

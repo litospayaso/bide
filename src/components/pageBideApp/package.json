@@ -1,6 +1,6 @@
 {
   "name": "page-bide-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Main entry point and routing system",
   "main": "pageBideApp.js",
   "module": "pageBideApp.js",

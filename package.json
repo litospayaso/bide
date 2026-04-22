@@ -1,6 +1,6 @@
 {
   "name": "bide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bide is a drawing and tracing app.",
   "author": "Angel Hita",
   "license": "ISC",
@@ -14,6 +14,8 @@
     "build:android": "npx cap sync android && cd android && gradlew assembleDebug",
     "build:apk": "npm run build && npm run build:android",
     "release": "npm run build:apk && node scripts/release.js",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
     "start": "npm run storybook",
     "test": "web-test-runner --config wtr.config.mjs --coverage",
     "test:watch": "web-test-runner --config wtr.config.mjs --watch --chromium",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@capacitor/android": "^6.2.1",
     "@capacitor/cli": "^6.2.1",
+    "@changesets/cli": "^2.31.0",
     "@chromatic-com/storybook": "^5.0.0",
     "@esm-bundle/chai": "^4.3.4-fix.0",
     "@storybook/addon-a11y": "^10.2.6",
@@ -56,6 +59,7 @@
     "vitest": "^4.0.18"
   },
   "workspaces": [
-    "src/components/*"
+    "src/components/*",
+    "."
   ]
 }

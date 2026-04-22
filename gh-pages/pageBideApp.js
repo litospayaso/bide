@@ -4348,6 +4348,9 @@
     r5()
   ], PageBideApp.prototype, "currentRoute", 2);
 
+  // src/components/pageCamera/index.ts
+  register("page-camera", PageCamera);
+
   // src/components/pageBideApp/index.ts
   register("bide-app", PageBideApp);
 })();

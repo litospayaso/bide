@@ -7,8 +7,6 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 /**
  * Main application entrypoint.
- *
- * @slot - This element has a slot
  */
 export default class PageBideApp extends Page {
   static styles = [
@@ -39,12 +37,10 @@ export default class PageBideApp extends Page {
     super.connectedCallback();
     defineCustomElements(window);
     window.addEventListener('popstate', this.handlePopState);
-    
+
     // Fallback for GH pages: redirect root to something or handle base path correctly
     const basePath = '/bide/'; // Depending on how it's deployed, in GH pages it's often /repo-name/
-    if (this.currentRoute === '/' || this.currentRoute === basePath) {
-      this.currentRoute = basePath + 'example'; // or just view example
-    }
+
   }
 
   disconnectedCallback() {

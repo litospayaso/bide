@@ -4307,9 +4307,6 @@
       defineCustomElements(window);
       window.addEventListener("popstate", this.handlePopState);
       const basePath = "/bide/";
-      if (this.currentRoute === "/" || this.currentRoute === basePath) {
-        this.currentRoute = basePath + "example";
-      }
     }
     disconnectedCallback() {
       window.removeEventListener("popstate", this.handlePopState);
